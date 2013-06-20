@@ -1,15 +1,37 @@
-#logcat.vim
+#Logcat plugin for Vim
 
 ##Description
-Highlights Android logcat files with extension *.logcat based on the log level
-Please see http://developer.android.com/guide/developing/tools/adb.html#logcat for more information on Android logcat logs.
 
-##Installation details:
-The adb logcat file needs to have a .logcat extension.
+This plugin turn up highlights for Android log files
 
-Please place the logcat.vim file in your ~/.vim/syntax directory and add the following line to your ~/.vimrc (or _vimrc on Windows)
+The main highlights are based on the debug level.
 
-    au BufRead,BufNewFile *.logcat set filetype=logcat
+Please see http://developer.android.com/guide/developing/tools/adb.html#logcat
+for more information on Android logcat logs.
 
-Alternatively, if the extension is not .logcat, you can do :set ft=logcat to set the syntax
+##Installation
 
+If you use *pathogen* plugin, just clone this repo in your *bundle/* directory.
+
+Otherwise, just copy the repo content in your *.vim/* configuration subdir.
+
+Your terminal needs to support 256 colors. Wich is the case for most X
+terminals anyway.
+
+##Details on filetype autodetection
+
+This plugins detects files with  *.lc* or *.logcat* extensions, and tries to
+perform a basic detection on other files. This part is scripted in the
+*ftdetect/* subdirectory.
+
+Alternatively, if the detection fails, you can do :
+
+*set ft=logcat*
+
+to set the syntax.
+
+##Limitations
+
+* Support for GUI vim is yet incomplete.
+* Support for color schemes is inexistant.
+* The colors have been chosen for a light background.
